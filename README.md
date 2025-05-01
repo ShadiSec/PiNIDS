@@ -1,5 +1,3 @@
-# Cyber project
-
 # 🔐 Raspberry Pi Network Intrusion Detection System (NIDS) with Suricata + ELK Stack
 
 This project turns a Raspberry Pi into a functioning IDS (Intrusion Detection System) that detects and forwards logs to a central dashboard on your laptop. You’ll use Suricata for packet inspection, Filebeat for log shipping, and Elasticsearch + Kibana (ELK Stack) to visualize everything in real time.
@@ -120,16 +118,16 @@ This project turns a Raspberry Pi into a functioning IDS (Intrusion Detection Sy
     - `elasticsearch` (port 9200)
     - `kibana` (port 5601)
         
-        ![image.png](image.png)
+        ![image.png](https://github.com/ShadiSec/PiNIDS/blob/main/images/image.png)
         
 5. Confirm everything’s working:
     - Go to `http://localhost:9200` for Elasticsearch
         
-        ![image.png](image%201.png)
+        ![image.png](https://github.com/ShadiSec/PiNIDS/blob/main/images/image%201.png)
         
     - Go to `http://localhost:5601` for Kibana
         
-        ![image.png](image%202.png)
+        ![image.png](https://github.com/ShadiSec/PiNIDS/blob/main/images/image%202.png)
         
         > If prompted in Kibana, choose "Explore on my own"
         > 
@@ -153,7 +151,7 @@ This project turns a Raspberry Pi into a functioning IDS (Intrusion Detection Sy
     
 3. Find the input section and **comment out** the default filestream config by adding `#` at the beginning of each line.
     
-    ![image.png](image%203.png)
+    ![image.png](https://github.com/ShadiSec/PiNIDS/blob/main/images/image%203.png)
     
 4. At the bottom of that section, add this Suricata input:
     
@@ -167,7 +165,7 @@ This project turns a Raspberry Pi into a functioning IDS (Intrusion Detection Sy
         json.add_error_key: true
     ```
     
-    ![image.png](image%204.png)
+    ![image.png](https://github.com/ShadiSec/PiNIDS/blob/main/images/image%204.png)
     
 5. Scroll down to the `output.elasticsearch` section and replace the `localhost`with your **laptop's local IP**:
     
@@ -177,7 +175,7 @@ This project turns a Raspberry Pi into a functioning IDS (Intrusion Detection Sy
       protocol: "http"
     ```
     
-    ![image.png](image%205.png)
+    ![image.png](https://github.com/ShadiSec/PiNIDS/blob/main/images/image%205.png)
     
 6. Save and exit the file (`CTRL + S` then `CTRL + X`).
 7. Restart Filebeat:
@@ -192,7 +190,7 @@ This project turns a Raspberry Pi into a functioning IDS (Intrusion Detection Sy
     sudo journalctl -u filebeat -f
     ```
     
-    ![image.png](image%206.png)
+    ![image.png](https://github.com/ShadiSec/PiNIDS/blob/main/images/image%206.png)
     
 
 ---
@@ -203,24 +201,24 @@ This project turns a Raspberry Pi into a functioning IDS (Intrusion Detection Sy
 2. Click the ☰ menu → **Stack Management**
 3. Go to **Index Management → Data Streams** and make sure you see something like `filebeat-*`
     
-    ![image.png](image%207.png)
+    ![image.png](https://github.com/ShadiSec/PiNIDS/blob/main/images/image%207.png)
     
 4. Now go to **Discover** and click **“Create data view”**
     
-    ![image.png](image%208.png)
+    ![image.png](https://github.com/ShadiSec/PiNIDS/blob/main/images/image%208.png)
     
     - Set the pattern to `filebeat-*`
     - Choose `@timestamp` as the time field
         
-        ![image.png](image%209.png)
+        ![image.png](https://github.com/ShadiSec/PiNIDS/blob/main/images/image%209.png)
         
-5. You should now see real-time logs from Suricata including:
+5. You should now see real-time logs from Suricata, including:
     - DNS requests
     - Alerts
     - Protocol details
     - Source/destination IPs
     
-    ![image.png](image%2010.png)
+    ![image.png](https://github.com/ShadiSec/PiNIDS/blob/main/images/image%2010.png)
     
 
 ---
@@ -240,6 +238,6 @@ It won't see traffic for other devices on the network. These methods are outside
 
 Now that the stack is working:
 
-- We will use`nmap` or other tools to generate alerts from Kali VM.
+- We will use `nmap` or other tools to generate alerts from the Kali VM.
 - Use Kibana’s query bar to search logs with filters.
-- Click here to view that:
+- Click here to view that: [Coming Soon]
