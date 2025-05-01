@@ -47,7 +47,13 @@ This project turns a Raspberry Pi into a functioning IDS (Intrusion Detection Sy
         restart: unless-stopped
     ```
     
-4. Deploy the container and check if Suricata is writing logs:
+4. Deploy the container (make sure you're in the same directory as the .yml file):
+   
+   ```bash
+   docker-compose up -d
+   ```
+
+6.  and check if Suricata is writing logs:
     
     ```bash
     cd ~/suricata/logs
