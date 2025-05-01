@@ -238,6 +238,6 @@ It won't see traffic for other devices on the network. These methods are outside
 
 Now that the stack is working:
 
-- We will use `nmap` or other tools to generate alerts from the Kali VM.
+- We will use `nmap` or other tools to generate alerts from a Kali VM.
 - Use Kibana’s query bar to search logs with filters.
 - Click here to view that: [Coming Soon]
