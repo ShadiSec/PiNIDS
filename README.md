@@ -76,7 +76,7 @@ This project turns a Raspberry Pi into a functioning IDS (Intrusion Detection Sy
 ## 📊 Step 3: Deploy the ELK Stack Using Docker
 
 1. On your laptop, create a folder called `elk-stack`.
-2. Inside it, create a file named `docker-compose.yml` and paste:
+2. Inside it, create a file named `docker-compose.yml` or `.yaml` (both function the same) and paste:
     
     ```yaml
     version: '3.7'
